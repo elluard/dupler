@@ -26,10 +26,10 @@ defmodule Duper.Results do
   def handle_cast({:add, path, hash}, results) do
     results =
       Map.update(
-        results,
-        hash,
-        [path],
-        fn existing ->
+        results, # 업데이트 할 map
+        hash, # 업데이트할 map 의 key 값
+        [path], # 항목이 있을경우, 저장할 형태
+        fn existing -> #항목이 있을경우, 이 함수의 결과를 저장함
           [path | existing]
         end
       )
