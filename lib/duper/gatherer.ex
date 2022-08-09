@@ -24,7 +24,6 @@ defmodule Duper.Gatherer do
   def handle_info(:kickoff, worker_count) do
     1..worker_count
     |> Enum.each(fn _ -> Duper.WorkerSupervisor.add_worder() end)
-
     {:noreply, worker_count}
   end
 
